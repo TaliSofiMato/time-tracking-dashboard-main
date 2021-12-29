@@ -1,0 +1,86 @@
+.dashboard{
+    height: 560px;
+    width: 1175px;
+    /* border: 1px solid black; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -640px;
+    margin-top: -275px;
+}
+.user-and-menu{
+    width: 280px;
+    /* border: 2px solid palegreen; */
+    height: 100%;
+    float: left;
+}
+.user{
+    width: 280px;
+    height: 326px;
+    border-radius: 5px;
+    border: 1px solid pink;
+    background-color: hsl(235, 45%, 61%)
+  
+}
+.avatar{
+    height: 40px;
+}
+
+.user-text{
+    float: bottom;
+    text-align: center;
+    color: white;
+    font-family: 'Rubik', sans-serif;
+}
+.views{
+    height: 229px;
+    width: 280px;
+    border-radius: 5px;
+    
+    color: white;
+    border: 1px solid orange;
+    background-color: hsl(236, 100%, 87%)
+} 
+.view-text{
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    color: white;
+}
+.activities{
+    width: 879px;
+    /* border: 1px solid red; */
+    height: 100%;
+    float: right;
+}
+.background-image{
+    height: 40px;
+    /* border: 1px solid purple; */
+    width:  280px;
+    /* position: absolute; */
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: orange;
+    /* display: inline-block; */
+
+}
+.activity{
+    position: relative;
+    height: 240px;
+    width: 280px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-bottom: 46px;
+}
+
+.content {
+    height: 240px;
+    box-sizing: border-box; 
+    position: absolute;
+    top: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    background-color: hsl(235, 46%, 20%)
+}
+
