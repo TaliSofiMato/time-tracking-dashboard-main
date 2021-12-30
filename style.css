@@ -33,13 +33,14 @@
     font-family: 'Rubik', sans-serif;
 }
 .views{
-    height: 229px;
+    height: 240px;
     width: 280px;
     border-radius: 5px;
-    
-    color: white;
     border: 1px solid orange;
-    background-color: hsl(236, 100%, 87%)
+    background-color: hsl(236, 100%, 87%);
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
 } 
 .view-text{
     font-family: 'Rubik', sans-serif;
@@ -54,13 +55,33 @@
 }
 .background-image{
     height: 40px;
-    /* border: 1px solid purple; */
     width:  280px;
-    /* position: absolute; */
     box-sizing: border-box;
     border-radius: 5px;
     background-color: orange;
-    /* display: inline-block; */
+}
+.image{
+    position: absolute;
+    right: 20px;
+    height: 43px;
+}
+.work{
+    background-color: hsl(15, 100%, 70%);
+}
+.play{
+    background-color: hsl(195, 74%, 62%)
+}
+.study{
+    background-color: hsl(348, 100%, 68%)
+}
+.exercise{
+    background-color: hsl(145, 58%, 55%)
+}
+.social{
+    background-color: hsl(264, 64%, 52%)
+}
+.self-care{
+    background-color: hsl(43, 84%, 65%)
 
 }
 .activity{
@@ -82,5 +103,9 @@
     border-radius: 5px;
     color: white;
     background-color: hsl(235, 46%, 20%)
+}
+.attribution{
+    bottom: 0;
+    position: absolute;
 }
 
