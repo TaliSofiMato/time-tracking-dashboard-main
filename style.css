@@ -1,3 +1,6 @@
+body{
+    background-color: hsl(226, 43%, 10%);
+}
 .dashboard{
     height: 560px;
     width: 1175px;
@@ -61,15 +64,18 @@
     height: 240px;
     width: 280px;
     border-radius: 5px;
-    background-color: hsl(236, 100%, 87%);
+    background-color: hsl(235, 46%, 20%);
     position: absolute;
     bottom: 0;
     z-index: -1;
 } 
 .view-text{
     font-family: 'Rubik', sans-serif;
-    text-align: center;
+    text-align: left;
+    margin-left: 54px;
+    margin-top: 46px;
     color: white;
+
 }
 .activities{
     width: 879px;

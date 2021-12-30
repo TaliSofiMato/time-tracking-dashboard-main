@@ -14,6 +14,121 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+  <script>
+    const data = [
+  {
+    "title": "Work",
+    "timeframes": {
+      "daily": {
+        "current": 5,
+        "previous": 7
+      },
+      "weekly": {
+        "current": 32,
+        "previous": 36
+      },
+      "monthly": {
+        "current": 103,
+        "previous": 128
+      }
+    }
+  },
+  {
+    "title": "Play",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 2
+      },
+      "weekly": {
+        "current": 10,
+        "previous": 8
+      },
+      "monthly": {
+        "current": 23,
+        "previous": 29
+      }
+    }
+  },
+  {
+    "title": "Study",
+    "timeframes": {
+      "daily": {
+        "current": 0,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 4,
+        "previous": 7
+      },
+      "monthly": {
+        "current": 13,
+        "previous": 19
+      }
+    }
+  },
+  {
+    "title": "Exercise",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 4,
+        "previous": 5
+      },
+      "monthly": {
+        "current": 11,
+        "previous": 18
+      }
+    }
+  },
+  {
+    "title": "Social",
+    "timeframes": {
+      "daily": {
+        "current": 1,
+        "previous": 3
+      },
+      "weekly": {
+        "current": 5,
+        "previous": 10
+      },
+      "monthly": {
+        "current": 21,
+        "previous": 23
+      }
+    }
+  },
+  {
+    "title": "Self Care",
+    "timeframes": {
+      "daily": {
+        "current": 0,
+        "previous": 1
+      },
+      "weekly": {
+        "current": 2,
+        "previous": 2
+      },
+      "monthly": {
+        "current": 7,
+        "previous": 11
+      }
+    }
+  }
+]
+  data.forEach((obj) => {
+    let activityDiv = document.createElement('div')
+    activityDiv.classList.add('activity')
+    
+    let contentDiv = document.createElement('div')
+    contentDiv.classList.add('content')
+    contentDiv.innerText = obj.timeframes.daily.current
+    activityDiv.appendChild(contentDiv)
+  })
+  </script>
 </head>
 <body>
   <div class="dashboard">
@@ -25,11 +140,9 @@
         <p class="last-name">Robson</p>
       </div>
       <div class="views">
-        <p class="view-text">
-          Daily
-          Weekly
-          Monthly
-        </p>
+        <p class="view-text">Daily</p>
+        <p class="view-text">Weekly</p>
+        <p class="view-text">Monthly</p>
       </div>
     </div>
     <div class="activities">
@@ -50,7 +163,6 @@
       <div class="activity">
         <div class="background-image play">
           <img src="images/icon-play.svg" class="image"/>
-
         </div>
         <div class="content">
         Play
