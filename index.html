@@ -18,6 +18,7 @@
     const data = [
   {
     "title": "Work",
+    "url": "images/icon-work.svg",
     "timeframes": {
       "daily": {
         "current": 5,
@@ -35,6 +36,7 @@
   },
   {
     "title": "Play",
+    "url": "images/icon-play.svg",
     "timeframes": {
       "daily": {
         "current": 1,
@@ -52,6 +54,7 @@
   },
   {
     "title": "Study",
+    "url": "images/icon-study.svg",
     "timeframes": {
       "daily": {
         "current": 0,
@@ -69,6 +72,7 @@
   },
   {
     "title": "Exercise",
+    "url": "images/icon-exercise.svg",
     "timeframes": {
       "daily": {
         "current": 1,
@@ -86,6 +90,7 @@
   },
   {
     "title": "Social",
+    "url": "images/icon-social.svg",
     "timeframes": {
       "daily": {
         "current": 1,
@@ -103,6 +108,7 @@
   },
   {
     "title": "Self Care",
+    "url": "images/icon-self-care.svg",
     "timeframes": {
       "daily": {
         "current": 0,
@@ -119,15 +125,7 @@
     }
   }
 ]
-  data.forEach((obj) => {
-    let activityDiv = document.createElement('div')
-    activityDiv.classList.add('activity')
-    
-    let contentDiv = document.createElement('div')
-    contentDiv.classList.add('content')
-    contentDiv.innerText = obj.timeframes.daily.current
-    activityDiv.appendChild(contentDiv)
-  })
+
   </script>
 </head>
 <body>
@@ -146,99 +144,61 @@
       </div>
     </div>
     <div class="activities">
-      <div class="activity">
-        <div class="background-image work">
-          <img src="images/icon-work.svg" class="image"/>
-        </div>
-        <div class="content">
-          Work
-          5hrs <!-- daily -->
-          Previous - 7hrs <!-- daily -->
-          32hrs <!-- weekly -->
-          Previous - 36hrs <!-- weekly -->
-          103hrs <!-- monthly -->
-          Previous - 128hrs <!-- monthly -->
-        </div>
-      </div>
-      <div class="activity">
-        <div class="background-image play">
-          <img src="images/icon-play.svg" class="image"/>
-        </div>
-        <div class="content">
-        Play
-        1hr <!-- daily -->
-        Previous - 2hrs <!-- daily -->
-        10hrs <!-- weekly -->
-        Previous - 8hrs <!-- weekly -->
-        23hrs <!-- monthly -->
-        Previous - 29hrs <!-- monthly -->
-      </div>
-      </div>
       
-      <div class="activity">
-        <div class="background-image study">
-          <img src="images/icon-study.svg" class="image"/>
-        </div>
-        <div class="content">
-        Study
-        0hrs <!-- daily -->
-        Previous - 1hr <!-- daily -->
-        4hrs <!-- weekly -->
-        Previous - 7hrs <!-- weekly -->
-        13hrs <!-- monthly -->
-        Previous - 19hrs <!-- monthly -->
-      </div>
-      </div>
-      
-      <div class="activity">
-        <div class="background-image exercise">
-          <img src="images/icon-exercise.svg" class="image"/>
-        </div>
-        <div class="content">
-        Exercise
-        1hr <!-- daily -->
-        Previous - 1hr <!-- daily -->
-        4hrs <!-- weekly -->
-        Previous - 5hrs <!-- weekly -->
-        11hrs <!-- monthly -->
-        Previous - 18hrs <!-- monthly -->
-        </div>
-      </div>
-      
-      <div class="activity">
-        <div class="background-image social">        
-          <img src="images/icon-social.svg" class="image"/>
-        </div>
-        <div class="content">
-        Social
-        1hr <!-- daily -->
-        Previous - 3hrs <!-- daily -->
-        5hrs <!-- weekly -->
-        Previous - 10hrs <!-- weekly -->
-        21hrs <!-- monthly -->
-        Previous - 23hrs <!-- monthly -->
-        </div>
-      </div>
-      
-      <div class="activity">
-        <div class="background-image self-care">
-          <img src="images/icon-self-care.svg" class="image"/>
-        </div>
-        <div class="content">
-        Self Care
-        0hrs <!-- daily -->
-        Previous - 1hr <!-- daily -->
-        2hrs <!-- weekly -->
-        Previous - 2hrs <!-- weekly -->
-        7hrs <!-- monthly -->
-        Previous - 11hrs <!-- monthly -->
-        </div>
-      </div>
     </div>
   </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">TaliSofi</a>.
   </div>
+  <script>  
+    data.forEach((obj) => {
+      let activityDiv = document.createElement('div')
+      activityDiv.classList.add('activity')
+   
+      let backGroundDiv = document.createElement('div')
+      backGroundDiv.classList.add('background-image')
+      let map = {
+        'Work': 'work',
+        'Play': 'play',
+        'Study': 'study',
+        'Exercise': 'exercise',
+        'Social': 'social',
+        'Self Care': 'self-care',
+      }
+      backGroundDiv.classList.add(map[obj.title])
+      
+      debugger
+      let imageTag = document.createElement('img')
+      imageTag.classList.add('image')
+      imageTag.src = obj.url
+      
+
+      let contentDiv = document.createElement('div')
+      contentDiv.classList.add('content')
+      
+      let activityTextDiv = document.createElement('div')
+      activityTextDiv.classList.add('activity-text')
+      activityTextDiv.innerText = obj.title
+      
+      let hrsDiv = document.createElement('div')
+      hrsDiv.classList.add('hrs')
+      hrsDiv.innerText = obj.timeframes.daily.current + 'hrs'
+
+      let previousHrsDiv = document.createElement('div')
+      previousHrsDiv.classList.add('previous-hrs')
+      previousHrsDiv.innerText = 'Previous - ' + obj.timeframes.daily.previous + 'hrs'
+
+
+      backGroundDiv.appendChild(imageTag)
+      contentDiv.appendChild(activityTextDiv)
+      contentDiv.appendChild(hrsDiv)
+      contentDiv.appendChild(previousHrsDiv)
+      activityDiv.appendChild(backGroundDiv)
+      activityDiv.appendChild(contentDiv)
+
+      document.querySelector('.activities').appendChild(activityDiv)
+    })
+  </script>
 </body>
 </html>
