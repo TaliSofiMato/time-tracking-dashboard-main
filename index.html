@@ -125,10 +125,10 @@
     }
   }
 ]
-
   </script>
 </head>
 <body>
+ 
   <div class="dashboard">
     <div class="user-and-menu">
       <div class="user">
@@ -138,9 +138,9 @@
         <p class="last-name">Robson</p>
       </div>
       <div class="views">
-        <p class="view-text">Daily</p>
-        <p class="view-text">Weekly</p>
-        <p class="view-text">Monthly</p>
+        <p onclick="changeState('daily')" class="view-text">Daily</p>
+        <p onclick="changeState('weekly')" class="view-text">Weekly</p>
+        <p onclick="changeState('monthly')" class="view-text">Monthly</p>
       </div>
     </div>
     <div class="activities">
@@ -152,6 +152,19 @@
     Coded by <a href="#">TaliSofi</a>.
   </div>
   <script>  
+    let state = ''
+
+    let changeState = (mode) => {
+      state = mode
+      rerender()
+    }
+    let rerender = () => {
+      Array.from(document.getElementsByClassName('activity')).forEach((activity, index) => {
+        activity.querySelector('.hrs').innerText = data[index].timeframes[state].current + 'hrs'
+        activity.querySelector('.previous-hrs').innerText = 'Previous - ' + data[index].timeframes[state].previous + 'hrs'
+      })
+    }
+
     data.forEach((obj) => {
       let activityDiv = document.createElement('div')
       activityDiv.classList.add('activity')
@@ -168,7 +181,6 @@
       }
       backGroundDiv.classList.add(map[obj.title])
       
-      debugger
       let imageTag = document.createElement('img')
       imageTag.classList.add('image')
       imageTag.src = obj.url

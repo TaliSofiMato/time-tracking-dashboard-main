@@ -21,6 +21,7 @@ body{
     width: 280px;
     height: 326px;
     border-radius: 5px;
+    z-index: 1000;
     background-color: hsl(246, 80%, 60%)
 }
 .avatar{
@@ -67,7 +68,7 @@ body{
     background-color: hsl(235, 46%, 20%);
     position: absolute;
     bottom: 0;
-    z-index: -1;
+    /* z-index: -1; */
 } 
 .view-text{
     font-family: 'Rubik', sans-serif;
@@ -75,7 +76,6 @@ body{
     margin-left: 54px;
     margin-top: 46px;
     color: white;
-
 }
 .activities{
     width: 879px;
