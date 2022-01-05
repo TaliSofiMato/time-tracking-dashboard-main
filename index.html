@@ -112,15 +112,18 @@
     "timeframes": {
       "daily": {
         "current": 0,
-        "previous": 1
+        "previous": 1,
+        "mode": 'yesterday -'
       },
       "weekly": {
         "current": 2,
-        "previous": 2
+        "previous": 2,
+        "mode": 'Last week -'
       },
       "monthly": {
         "current": 7,
-        "previous": 11
+        "previous": 11,
+        "mode": 'Last month -'
       }
     }
   }
@@ -131,21 +134,20 @@
  
   <div class="dashboard">
     <div class="user-and-menu">
+      <div class="views">
+        <p onclick="changeState('daily', event)" class="view-text clicked">Daily</p>
+        <p onclick="changeState('weekly', event)" class="view-text">Weekly</p>
+        <p onclick="changeState('monthly', event)" class="view-text">Monthly</p>
+      </div>
       <div class="user">
         <img class="avatar" src="images/image-jeremy.png">
         <p class="report">Report for</p>
         <p class="first-name">Jeremy</p>
         <p class="last-name">Robson</p>
       </div>
-      <div class="views">
-        <p onclick="changeState('daily')" class="view-text">Daily</p>
-        <p onclick="changeState('weekly')" class="view-text">Weekly</p>
-        <p onclick="changeState('monthly')" class="view-text">Monthly</p>
-      </div>
+  
     </div>
-    <div class="activities">
-      
-    </div>
+    <div class="activities"></div>
   </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
@@ -153,15 +155,21 @@
   </div>
   <script>  
     let state = ''
-
-    let changeState = (mode) => {
+    let modeTextMap = {
+      'daily': 'Yesterday - ',
+      'weekly': 'Last week - ',
+      'monthly': 'Last month - '
+    }
+    let changeState = (mode, e) => {
+      document.querySelector('.clicked').classList.remove('clicked')
+      e.target.classList.add('clicked')
       state = mode
       rerender()
     }
     let rerender = () => {
       Array.from(document.getElementsByClassName('activity')).forEach((activity, index) => {
         activity.querySelector('.hrs').innerText = data[index].timeframes[state].current + 'hrs'
-        activity.querySelector('.previous-hrs').innerText = 'Previous - ' + data[index].timeframes[state].previous + 'hrs'
+        activity.querySelector('.previous-hrs').innerText =  modeTextMap[state] + data[index].timeframes[state].previous + 'hrs'
       })
     }
 
@@ -189,6 +197,10 @@
       let contentDiv = document.createElement('div')
       contentDiv.classList.add('content')
       
+      let ellipsis = document.createElement('img')
+      ellipsis.classList.add('ellipsis')
+      ellipsis.src = './images/icon-ellipsis.svg'
+
       let activityTextDiv = document.createElement('div')
       activityTextDiv.classList.add('activity-text')
       activityTextDiv.innerText = obj.title
@@ -199,10 +211,11 @@
 
       let previousHrsDiv = document.createElement('div')
       previousHrsDiv.classList.add('previous-hrs')
-      previousHrsDiv.innerText = 'Previous - ' + obj.timeframes.daily.previous + 'hrs'
+      previousHrsDiv.innerText = 'Yesterday - ' + obj.timeframes.daily.previous + 'hrs'
 
 
       backGroundDiv.appendChild(imageTag)
+      contentDiv.appendChild(ellipsis)
       contentDiv.appendChild(activityTextDiv)
       contentDiv.appendChild(hrsDiv)
       contentDiv.appendChild(previousHrsDiv)

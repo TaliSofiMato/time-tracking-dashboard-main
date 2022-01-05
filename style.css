@@ -76,6 +76,14 @@ body{
     margin-left: 54px;
     margin-top: 46px;
     color: white;
+    opacity: .7;
+    cursor: pointer;
+}
+.view-text:hover{
+    opacity: 1;
+}
+.clicked{
+    opacity: 1;
 }
 .activities{
     width: 879px;
@@ -128,12 +136,17 @@ body{
     box-sizing: border-box; 
     position: absolute;
     top: 30px;
-    /* border: 1px solid black; */
     border-radius: 5px;
     color: white;
     font-family: 'Rubik', sans-serif;
     font-size: 18px;
     background-color: hsl(235, 46%, 20%)
+}
+.ellipsis{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 .activity-text{
     font-weight: 500;
